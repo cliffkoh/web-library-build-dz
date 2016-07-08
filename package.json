@@ -8,7 +8,7 @@
     "gulp": "~3.9.1",
     "gulp-core-build": "~0.7.0",
     "gulp-core-build-karma": "~0.2.2",
-    "gulp-core-build-sass": "~0.3.7",
+    "gulp-core-build-sass": "~0.3.8",
     "gulp-core-build-serve": "~0.2.2",
     "gulp-core-build-typescript": "~0.4.2",
     "gulp-core-build-webpack": "~0.2.3",
