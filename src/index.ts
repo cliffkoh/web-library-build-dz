@@ -5,6 +5,8 @@ import { karma } from '@microsoft/gulp-core-build-karma';
 import { webpack } from '@microsoft/gulp-core-build-webpack';
 import { serve, reload } from '@microsoft/gulp-core-build-serve';
 import { PostProcessSourceMaps } from './PostProcessSourceMaps';
+import { ValidateShrinkwrapTask } from './ValidateShrinkwrapTask';
+import { GenerateShrinkwrapTask } from './GenerateShrinkwrapTask';
 
 export * from '@microsoft/gulp-core-build';
 export * from '@microsoft/gulp-core-build-typescript';
@@ -28,8 +30,14 @@ const sourceMatch: string[] = [
 let buildTasks: IExecutable = task('build', serial(preCopy, sass, parallel(tslint, typescript, text), postCopy));
 let bundleTasks: IExecutable = task('bundle', serial(buildTasks, webpack));
 const postProcessSourceMaps: PostProcessSourceMaps = new PostProcessSourceMaps();
+const validateShrinkwrapTask: ValidateShrinkwrapTask = new ValidateShrinkwrapTask();
+const generateShrinkwrapTask: GenerateShrinkwrapTask = new GenerateShrinkwrapTask();
 
 task('test', serial(sass, parallel(typescript, text), karma));
+
+task('validate-shrinkwrap', validateShrinkwrapTask);
+
+task('generate', generateShrinkwrapTask);
 
 task('test-watch', watch(sourceMatch, serial(sass, parallel(typescript, text), karma)));
 

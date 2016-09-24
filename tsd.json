@@ -43,6 +43,12 @@
     },
     "vinyl/vinyl.d.ts": {
       "commit": "513510a89acc648422c9abb047265116198f99ee"
+    },
+    "semver/semver.d.ts": {
+      "commit": "d79cd56465f9ed53172dc1617c863a164b0fd7fb"
+    },
+    "rimraf/rimraf.d.ts": {
+      "commit": "26f276c0032b2c27647e69097ca20eb7f2b1e21b"
     }
   }
 }
